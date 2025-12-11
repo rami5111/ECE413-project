@@ -6,11 +6,11 @@ const requireAuth = require('./authMiddleware');
 
 const router = express.Router();
 
-// نطبق الـ auth على كل الراوتات في هذا الملف
+// نطبّق requireAuth على كل الراوتات هنا
 router.use(requireAuth);
 
 // POST /api/measurements
-// يحفظ قياس واحد
+// يحفظ قياس واحد (HR + SpO2) للمستخدم الحالي
 router.post('/', async (req, res) => {
   try {
     const { heartRate, spo2 } = req.body;
